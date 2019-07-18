@@ -51,8 +51,8 @@
          mainApp.value("defaultInput", 5);
          
      	//【factory】可以认为是设计模式中的工厂方法， 就是你提供一个方法， 该方法返回一个对象的实例，
-	// 对于 AngularJS 的 factory 来说， 就是先定义一个对象， 给这个对象添加属性和方法， 然后返回这个对象
-	// MathService ： 该方法名
+	    // 对于 AngularJS 的 factory 来说， 就是先定义一个对象， 给这个对象添加属性和方法， 然后返回这个对象
+	    // MathService ： 该方法名
         // 最后controller 拿到的对象就是下面代码中return的对象，相当于这样的代码：var factoryObj = new MathService();
          mainApp.factory('MathService', function() {
             var factory = {};
@@ -75,8 +75,8 @@
 		  
          //【constant】 constant(常量)用来在配置阶段传递数值，注意这个常量在配置阶段是不可用的。
          /* 
-	 mainApp.constant("configParam", "constant value"); 
-	 */
+	     mainApp.constant("configParam", "constant value"); 
+	     */
 
          // AngularJS 控制器操作
          mainApp.controller('CalcController', function($scope, CalcService, defaultInput) {
