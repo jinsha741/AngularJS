@@ -11,7 +11,7 @@
 
       <h2>AngularJS 依赖注入</h2>
 
-	// 静态页面实现
+	 // 静态页面实现
       <div ng-app = "mainApp" ng-controller = "CalcController">
          <p>输入一个数字: <input type = "number" ng-model = "number" /></p>
          <button ng-click = "square()">X<sup>2</sup></button>
