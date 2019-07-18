@@ -3,7 +3,7 @@
    
    <head>
       <meta charset="utf-8">
-      <title>AngularJS  依赖注入</title>
+      <title>AngularJS 基本概念总结</title>
 	  /* 在这里 http://code.angularjs.org 获取 Angular 的最新版本 */
 	   
 	  /* 1.AngularJS 应用程序由 ng-app 定义。应用程序在 <div> 内运行
@@ -20,7 +20,7 @@
    </head>
    
    <body>
-      <h2>AngularJS模板</h2>
+      <h2>AngularJS控制器定义</h2>
       
       <div ng-app = "mainApp" ng-controller = "myCtrl">
 		  名: <input type="text" ng-model="firstName"><br>
