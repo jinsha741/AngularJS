@@ -4,7 +4,7 @@
    <head>
       <meta charset="utf-8">
       <script src="http://code.angularjs.org/1.7.8/angular.min.js"></script>
-      <title>AngularJS 基本概念总结</title>
+      <title>AngularJS title name</title>
    </head>
 
    <body>
