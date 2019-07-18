@@ -20,7 +20,11 @@
       
       <script>
          var mainApp = angular.module("mainApp", []);       //通过angular.module函数来创建模块
-         
+
+	/*AngularJS模块可以在被加载和执行之前对模块自身进行配置。
+	  当你需要在AngularJS模块加载之前进行配置，就要用到config。
+	  只有提供者(Provider)和常量(constant)才能注入到config中 
+	*/
 	//【provider】通过 provider 创建一个 service、factory等(配置阶段)
 	// Provider 中提供了一个 factory 方法 get()，它用于返回 value/service/factory
          mainApp.config(function($provide) {
