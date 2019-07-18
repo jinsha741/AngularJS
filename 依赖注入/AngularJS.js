@@ -30,6 +30,13 @@
          mainApp.config(function($provide) {
             $provide.provider('MathService', function() {
                this.$get = function() {
+		       
+		  /*
+		    var i = {};这是通过Json方式定义一个函数对象，
+		    该函数对象体为空，但不能说对象为空，执行alert(i)绝对不是null,
+		    不是等效于var i = new Object();语句,这个语句是在用Object原型创建实例,
+		    而var i = {};语句是在定义一个函数对象
+		  */
                   var factory = {};
 
                   factory.multiply = function(a, b) {
@@ -43,7 +50,10 @@
      	//【value】Value是一个简单的javascript对象，用于向控制器传递值（初始化配置阶段）
          mainApp.value("defaultInput", 5);
          
-     	//【factory】创建 factory "MathService" 用于两数的乘积
+     	//【factory】可以认为是设计模式中的工厂方法， 就是你提供一个方法， 该方法返回一个对象的实例，
+	// 对于 AngularJS 的 factory 来说， 就是先定义一个对象， 给这个对象添加属性和方法， 然后返回这个对象
+	// MathService ： 该方法名
+        // 最后controller 拿到的对象就是下面代码中return的对象，相当于这样的代码：var factoryObj = new MathService();
          mainApp.factory('MathService', function() {
             var factory = {};
             
@@ -53,7 +63,9 @@
             return factory;
          });
          
-     	//【factory】在 service 中注入 factory "MathService"(依赖注入过程)
+     	//【service】通过new运算符进行实例化，可以认为是一个类型，只要把属性和方法添加到this对象上即可，不用显式返回什么对象
+        // CalcService ： 该方法名
+        // 最后controller 拿到的对象就是下面代码中this指向的对象，相当于这样的代码：var serviceObj = new CalcService();
          mainApp.service('CalcService', function(MathService){
             this.square = function(a) {
                return MathService.multiply(a,a);
@@ -62,7 +74,9 @@
          
 		  
          //【constant】 constant(常量)用来在配置阶段传递数值，注意这个常量在配置阶段是不可用的。
-         /* mainApp.constant("configParam", "constant value"); */
+         /* 
+	 mainApp.constant("configParam", "constant value"); 
+	 */
 
          // AngularJS 控制器操作
          mainApp.controller('CalcController', function($scope, CalcService, defaultInput) {
