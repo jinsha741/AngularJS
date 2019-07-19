@@ -45,6 +45,7 @@
          mainApp.value("defaultInput", 5);
          
      	//【factory】创建 factory "MathService" 用于两数的乘积 （实现原生方法）
+        // 首先创建一个对象，然后返回这个对象
 	// MathService ： 服务名
          mainApp.factory('MathService', function() {
 			 
