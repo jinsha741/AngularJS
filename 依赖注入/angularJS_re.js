@@ -9,7 +9,7 @@
 
       <h2>AngularJS 依赖注入</h2>
 
-      <div ng-app = "mainApp" ng-controller = "CalcController">
+      <div ng-app = "mainApp" ng-controller = "CalcController"> 
          <p>输入一个数字: <input type = "number" ng-model = "number" /></p>
          <button ng-click = "square()">X<sup>2</sup></button>
          <p>结果: {{result}}</p>
