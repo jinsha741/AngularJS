@@ -24,21 +24,21 @@
 	*/
 	//【provider】通过 provider 创建一个 service、factory等(配置阶段)
 	// Provider 中提供了一个 factory 方法 get()，它用于返回 value/service/factory
-         mainApp.config(function($provide) {
-            $provide = myProvider();
+         mainApp.config(function(myProviderProvider) {
+            return myProviderProvider;
          });
 		  
-		  //依赖clientId服务通过Factory“配方”创建apiToken服务
-		  mainApp.provider('myProvider' , function(){
-			    this.$get = function() {
-				  var factory = {};
+	  //依赖clientId服务通过Factory“配方”创建apiToken服务
+	  mainApp.provider('myProvider' , function(){
+		    this.$get = function() {
+			  var factory = {};
 
-                  factory.multiply = function(a, b) {
-                     return a * b;
-                  }
-                  return factory;
-		    }
-		  });
+	  factory.multiply = function(a, b) {
+	     return a * b;
+	  }
+	  return factory;
+	    }
+	  });
 		
      	//【value】Value是一个简单的javascript对象，用于向控制器传递值（初始化配置阶段）
          mainApp.value("defaultInput", 5);
