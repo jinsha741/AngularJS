@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script src="http://code.angularjs.org/1.7.8/angular.min.js"></script>
+        <title>AngularJS demo2</title>
+        <script src="ValueSyntactic_this.js"></script>
+    </head>
+
+    <body ng-app="appModule">
+
+        <h2>Value服务Demo2</h2>
+        
+        <!--使用as关键字声明了Controller的实例，
+            然后在双花括号中使用Controller的实例去访问属性或者调用方法
+        -->
+        <div ng-controller="appController as A">
+            name : {{ A.name }}
+        </div>
+      
+    </body>
+
+</html>
