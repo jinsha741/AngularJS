@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script src="http://code.angularjs.org/1.7.8/angular.min.js"></script>
+        <title>AngularJS demo1</title>
+        <script src="module_create_controller.js"></script>
+    </head>
+
+    <!--通过使用ng-app指令给标签绑定模块。使用ng-controller指令给标签及它的子标签绑定Controller，
+        绑定了Controller的标签及它的子标签都可以使用Controller中的属性或者方法。
+    -->
+    <body ng-app="appModule">
+
+        <h2>模块对象的.controller()方法来创建控制器</h2>
+        
+        <div ng-controller="appController">
+            <button ng-click="secondPerson()">Jack</button>
+            <button ng-click="thirdPerson()">Rose</button>
+            <p>
+                这个人是：{{ person }}
+            </p>
+        </div>
+      
+    </body>
+
+</html>
