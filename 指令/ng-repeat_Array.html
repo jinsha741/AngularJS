@@ -8,22 +8,22 @@
     </head>
 	
     <body>
-		<!-- ng-app : 指令在网页加载完毕时会自动引导（自动初始化）应用程序。 
-			 ng-app="myModule" : 连接到代码模块
-			 ng-repeat :该指令用于绑定应用程序数据到 HTML 控制器(input, select, textarea)的值。
-			 ng-init : 指令为AngularJS应用程序定义了初始值。通常情况下，不使用该指令，而是使用一个控制器或模块来代替它
-		-->
-		<div ng-app="" ng-init="names=[
-								{name:'a',country:'china'},
-								{name:'b',country:'USA'},
-								{name:'c',country:'Japan'}]">
+	<!-- ng-app : 指令在网页加载完毕时会自动引导（自动初始化）应用程序。 
+	     ng-app="myModule" : 连接到代码模块
+	     ng-repeat :该指令用于绑定应用程序数据到 HTML 控制器(input, select, textarea)的值。
+	     ng-init : 指令为AngularJS应用程序定义了初始值。通常情况下，不使用该指令，而是使用一个控制器或模块来代替它
+	-->
+	<div ng-app="" ng-init="names=[
+				{name:'a',country:'china'},
+				{name:'b',country:'USA'},
+				{name:'c',country:'Japan'}]">
 
-		<ul>
-		  <li ng-repeat="i in names">
-			{{ i.name + "..." + i.country}}
-		  </li>
-		</ul>
-		</div>
+	<ul>
+	  <li ng-repeat="i in names">
+		{{ i.name + "..." + i.country}}
+	  </li>
+	</ul>
+	</div>
       
     </body>
 
