@@ -9,4 +9,5 @@ appModule.config(["$routeProvider" , function($routeProvider){
     .when("/news" , {template : "此处应该有新闻页面"})
     .when("/sports" , {template : "此处应该有体育页面"})
     .when("/help" , {template : "此处应当有帮助页面"})
+    .otherwise({redirectTo:'/'});
 }]);
