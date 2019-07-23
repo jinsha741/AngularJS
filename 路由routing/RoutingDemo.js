@@ -1,4 +1,5 @@
 // 为了给应用配置路由，需要给应用创建一个模块。这个模块叫做appModule
+// 包含了 ngRoute 模块作为主应用模块的依赖模块
 var appModule = angular.module("appModule" , ["ngRoute"]);
 
 // 配置 $routeProvider，AngularJS $routeProvider 用来定义路由规则
