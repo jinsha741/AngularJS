@@ -7,22 +7,23 @@
         <title>AngularJS Two-Way-DataBinding</title>
     </head>
 
-    <body ng-app>
+    <body ng-app="appModule">
+	<div ng-controller="appController">
 	<label>Name:</label>
 	<!-- ng-model :该指令绑定到一个叫textApp的模型变量。
 		       是双向数据绑定，改变页面上ng-model模块的值，也会对$scope中对应的值起作用，
 		       可以放在<input><select>内显示值
 	     placeholder : 该属性提供可描述输入字段预期值的提示信息
 	-->
-	<input type="text" ng-model="textApp" placeholder="请在这里输入Name">
+	<input type="text" ng-model="msg" placeholder="请在这里输入Name">
 	<hr>
-	<h1>输入结果：{{ textApp }}</h1>
+	<h1>输入结果：{{ msg }}</h1>
 	<hr>
 	<!-- ng-bind ： 是单向数据绑定，页面上改变不会对$scope中的内容起到作用，
 			因为是覆盖HTML元素内容，所以不能放在<input>内显示值
 	-->
 	<p>剩余可输入的字数：<span ng-bind="left()"></span></p>
-      
+        </div>
     </body>
 	
     <script>
