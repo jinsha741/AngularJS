@@ -8,6 +8,7 @@
     </head>
 
     <body ng-app="appModule">
+	<script src="EasyWeb.js"></script>
 	<div ng-controller="appController">
 	<label>Name:</label>
 	<!-- ng-model :该指令绑定到一个叫textApp的模型变量。
@@ -24,16 +25,6 @@
 	-->
 	<p>剩余可输入的字数：<span ng-bind="left()"></span></p>
         </div>
-    </body>
-	
-    <script>
-	 var appModule = angular.module("appModule" , []).controller("appController" , function($scope){
-	     $scope.msg = '';
-	     $scope.left = function(){
-	     	return 100 - $scope.msg.length;	
-	     };
-	 });   
-    </script>
-	    
+    </body>    
 
 </html>
