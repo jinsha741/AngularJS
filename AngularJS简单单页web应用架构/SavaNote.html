@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-
 <html>
     <head>
         <meta charset="utf-8">
         <script src="http://code.angularjs.org/1.7.8/angular.min.js"></script>
         <title>AngularJS App</title>
-        <script src="module_model.js"></script>
     </head>
 
     <body ng-app="appModule" ng-controller="appController">
@@ -13,32 +10,39 @@
         <h2>Sava Note App</h2>
         
         <form ng-submit="appSubmit()">
-            <input type="text" size="50" ng-model="writeText" placeholder="在这里添加note内容">
+            <input type="text" ng-model="writeText" size="50"  placeholder="在这里添加note内容">
 			<input type="submit" value="新增">
         </form>
 		
 		<div ng-repeat="x in textList">
-			<input type="checkbox" ng-model="x.done" ><span ng-bind="x.textList"></span>
+			<input type="checkbox" ng-model="x.done" > <span ng-bind="x.textList"></span>
 		</div>
 		
 		<p><button ng-click="remove()">删除</button></p>
       
-    </body>
+    
 	
 	<script>
 		var appModule = angular.module("appModule" , []);
 		
 		appModule.controller("appController" , ["$scope" , function($scope){
-			$scope.textList = [{"" , }]
+			$scope.textList = [{testList:'Clean House', done:false}]
 			
 			$scope.appSubmit = function(){
-				
+				$scope.textList.push({textList:$scope.writeText, done:false});
+                $scope.writeText = "";
 			}
 			
-			$scope.remove = funtion(){
-				
-			}
+			$scope.remove = function(){
+				var oldList = $scope.textList;
+        		$scope.textList = [];
+        		angular.forEach(oldList, function(x) {
+            		if (!x.done) $scope.textList.push(x);
+        		});
+    		};
 		}]);
 	</script>
+		
+	</body>
 
 </html>
