@@ -11,16 +11,24 @@
 
         <h2>Sava Note App</h2>
         
+	<!-- <form> 对应 指令ng-submit -->
         <form ng-submit="appSubmit()">
             <input type="text" ng-model="writeText" size="50"  placeholder="在这里添加note内容">
-			<input type="submit" value="新增">
+	    <input type="submit" value="新增">
         </form>
-		
-		<div ng-repeat="x in textList">
-			<input type="checkbox" ng-model="x.done" > <span ng-bind="x.textList"></span>
-		</div>
-		
-		<p><button ng-click="remove()">删除</button></p>
+	
+	<!-- 有关在list或数组中取值，用指令ng-repeat进行循环取值 -->
+	<div ng-repeat="x in textList">
+		<!-- x.done ： 取textList中的done属性值
+		     x.textList : 取textList的textList属性值
+		     ng-bind : 因为只是取值在页面显示(所以只能在<span>等显示静态属性标签里定义)，
+			       并不会涉及到改变值，所以用ng-bind
+		-->
+		<input type="checkbox" ng-model="x.done" > <span ng-bind="x.textList"></span>
+	</div>
+	
+	<!-- <botton> 对应 指令ng-click 定义点击事件 -->
+	<p><button ng-click="remove()">删除</button></p>
       
     
 	
@@ -28,19 +36,32 @@
 		var appModule = angular.module("appModule" , []);
 		
 		appModule.controller("appController" , ["$scope" , function($scope){
-			$scope.textList = [{textList:'Clean House', done:false}]
+			/*定义一个textList数组，赋初期值
+			  textList = []; 定义一个空数组
+			  textList = ["a" , "b" , "c"]; 定义有值数组
+			  textList = [{a:"1" , b:"2"}]; 定义二次元数组
+ 			*/
+			$scope.textList = [{textList:"我的妈啊", done:false}]
 			
+			/* $scope.writeText ： 绑定到的用户输入的内容
+			   $scope.writeText = ""; : 使writeText内容为空
+ 			*/
 			$scope.appSubmit = function(){
 				$scope.textList.push({textList:$scope.writeText, done:false});
-                $scope.writeText = "";
+               			$scope.writeText = "";
 			}
 			
+			/* oldList ： 把现在textList数组中的值传入到oldList中
+			   $scope.textList = []; : 使textList数组为空
+			   再从oldList传入 done:false （!x.done = true）的值到 textList中去
+			   而checkbox被选中后 done:true ,  !x.done = false 不执行if语句，就不会传入到textList中去了？
+ 			*/
 			$scope.remove = function(){
 				var oldList = $scope.textList;
-        		$scope.textList = [];
-        		angular.forEach(oldList, function(x) {
-            		if (!x.done) $scope.textList.push(x);
-        		});
+        			$scope.textList = [];
+        			angular.forEach(oldList, function(x) {
+            				if (!x.done) $scope.textList.push(x);
+        			});
     		};
 		}]);
 	</script>
