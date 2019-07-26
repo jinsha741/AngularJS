@@ -54,7 +54,8 @@
 			/* oldList ： 把现在textList数组中的值传入到oldList中
 			   $scope.textList = []; : 使textList数组为空
 			   再从oldList传入 done:false （!x.done = true）的值到 textList中去
-			   而checkbox被选中后 done:true ,  !x.done = false 不执行if语句，就不会传入到textList中去了？
+			   而checkbox被选中后，由于双向绑定 ng-model=true => x.done = true => textList中的done = true
+			   !x.done = false 不执行if语句，就不会传入到textList中去了？
  			*/
 			$scope.remove = function(){
 				var oldList = $scope.textList;
