@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+
 <html>
     <head>
         <meta charset="utf-8">
@@ -26,7 +28,7 @@
 		var appModule = angular.module("appModule" , []);
 		
 		appModule.controller("appController" , ["$scope" , function($scope){
-			$scope.textList = [{testList:'Clean House', done:false}]
+			$scope.textList = [{textList:'Clean House', done:false}]
 			
 			$scope.appSubmit = function(){
 				$scope.textList.push({textList:$scope.writeText, done:false});
